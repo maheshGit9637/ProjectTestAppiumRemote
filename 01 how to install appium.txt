@@ -1,3 +1,20 @@
 1) there are two ways of installing Appium
-first via npm
+first via node
 second via Appium desktop client
+
+first via node
+check if node is installed in your OS
+if yes - use
+npm install -g appium
+
+if no - then install node and then use below command
+npm install -g Appium
+
+npm install -g Appium - this command will install the Appium on gloabal basis on your computer.
+check if installed or not using below command- 
+appium --version
+
+to start the Appium server use below command- 
+appium
+
+you can access Appium server after installing Appium in your computer.
