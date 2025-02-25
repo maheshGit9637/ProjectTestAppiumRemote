@@ -1,0 +1,194 @@
+Setting up a **basic Java framework** for **Selenium** and **Appium** locally involves several steps. Here's a step-by-step guide on how to set up and create a simple test automation framework:
+
+### Prerequisites:
+- **Java JDK** (Java Development Kit) installed on your machine.
+- **Maven** installed for dependency management.
+- **Selenium WebDriver** for web automation.
+- **Appium** for mobile automation.
+- **IDE** like IntelliJ IDEA or Eclipse for Java development.
+
+### Step 1: Install Java Development Kit (JDK)
+1. Download and install the JDK from the official Oracle website or use an OpenJDK version (e.g., AdoptOpenJDK).
+2. Set up the `JAVA_HOME` environment variable to point to the JDK installation folder.
+3. Verify the installation by running `java -version` and `javac -version` in the terminal or command prompt.
+
+### Step 2: Install Maven (for dependency management)
+1. Download and install Maven from [https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi).
+2. Set up the `MAVEN_HOME` environment variable to point to the Maven installation folder.
+3. Verify the installation by running `mvn -version` in the terminal.
+
+### Step 3: Install Appium
+1. Install **Appium** using **npm** (Node.js package manager).
+   - First, you need to have **Node.js** installed. Download and install it from [https://nodejs.org/](https://nodejs.org/).
+   - Then, open a terminal and install Appium using the following command:
+     ```bash
+     npm install -g appium
+     ```
+2. Start Appium Server:
+   - Run `appium` in the terminal to start the Appium server. It will run on the default port `4723`.
+
+### Step 4: Install Android Studio (for Android Mobile Automation)
+1. Download **Android Studio** from [https://developer.android.com/studio](https://developer.android.com/studio).
+2. Install Android Studio and create an **Android Emulator** for testing. 
+3. Set up **Android SDK** and make sure the `ANDROID_HOME` environment variable is set.
+
+### Step 5: Set Up Your Project Directory
+
+1. **Create a new Maven Project**:
+   - Open your IDE (e.g., IntelliJ IDEA or Eclipse) and create a new **Maven project**. You can choose a **simple Java application**.
+   
+2. **Add Dependencies to the `pom.xml` file**:
+   In the `pom.xml`, you'll need to add dependencies for **Selenium**, **Appium**, and **JUnit** (or **TestNG**) to manage test cases.
+   
+   Here's an example of the required dependencies:
+   
+   ```xml
+   <dependencies>
+       <!-- Selenium WebDriver Dependency -->
+       <dependency>
+           <groupId>org.seleniumhq.selenium</groupId>
+           <artifactId>selenium-java</artifactId>
+           <version>3.141.59</version> <!-- Use the latest stable version -->
+       </dependency>
+       
+       <!-- Appium Java Client Dependency -->
+       <dependency>
+           <groupId>io.appium</groupId>
+           <artifactId>java-client</artifactId>
+           <version>7.5.1</version> <!-- Use the latest version -->
+       </dependency>
+       
+       <!-- TestNG Dependency for test management -->
+       <dependency>
+           <groupId>org.testng</groupId>
+           <artifactId>testng</artifactId>
+           <version>7.3.0</version> <!-- Use the latest version -->
+           <scope>test</scope>
+       </dependency>
+   </dependencies>
+   ```
+
+3. **Add the Appium Server URL**:
+   To connect to the Appium server, you need to provide the URL (`http://localhost:4723/wd/hub`).
+
+### Step 6: Create Web Automation Test (Using Selenium)
+
+Now, let's create a basic test for web automation using **Selenium** WebDriver.
+
+1. **Create a new Java class** (e.g., `WebTest.java`).
+2. **Write the Selenium WebDriver code** for automating a simple web interaction like opening a webpage and verifying the title.
+
+Example Selenium Test for Web:
+
+```java
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class WebTest {
+
+    @Test
+    public void testWeb() {
+        // Set up ChromeDriver path (update path to your local driver)
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.example.com");
+        
+        // Verify that the title is correct
+        String title = driver.getTitle();
+        Assert.assertEquals(title, "Example Domain");
+        
+        driver.quit();  // Close the browser
+    }
+}
+```
+
+Make sure to download the appropriate **ChromeDriver** (or any browser driver) based on your browser version. You can download it from [here](https://sites.google.com/a/chromium.org/chromedriver/downloads).
+
+### Step 7: Create Mobile Automation Test (Using Appium)
+
+Now, let's create a basic mobile automation test using **Appium**.
+
+1. **Create a new Java class** (e.g., `MobileTest.java`).
+2. Write the code to launch a mobile app and perform an action.
+
+Example Appium Test for Mobile:
+
+```java
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import java.net.URL;
+
+public class MobileTest {
+
+    private AndroidDriver<MobileElement> driver;
+
+    @BeforeClass
+    public void setUp() throws Exception {
+        // Set up Desired Capabilities for Appium
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0"); // Change based on your emulator/device
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554"); // Change based on your emulator/device
+        capabilities.setCapability(MobileCapabilityType.APP, "path/to/your/app.apk"); // Path to the app you want to automate
+
+        // Connect to Appium Server
+        driver = new AndroidDriver<>(new URL("http://localhost:4723/wd/hub"), capabilities);
+    }
+
+    @Test
+    public void testMobileApp() {
+        // Find a mobile element and perform an action (e.g., clicking a button)
+        MobileElement button = driver.findElementById("com.example:id/button_id"); // Use the correct ID for your app
+        button.click();
+        
+        // Add assertions here to validate app behavior
+    }
+}
+```
+
+### Step 8: Running the Tests
+
+1. **Web Test**: Run the `WebTest.java` using the TestNG framework or any other test framework (JUnit).
+2. **Mobile Test**: Start the Appium server using the command `appium` in the terminal. Then, run the `MobileTest.java` from your IDE or Maven.
+
+### Step 9: Automating the Framework Execution
+- To automate the execution, you can configure your Maven `pom.xml` to include plugins like **Surefire** for running tests.
+  
+Example Maven Surefire Plugin for TestNG:
+```xml
+<plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+        <configuration>
+            <suiteXmlFiles>
+                <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+            </suiteXmlFiles>
+        </configuration>
+    </plugin>
+</plugins>
+```
+
+Then, you can run the tests with the following Maven command:
+```bash
+mvn clean test
+```
+
+### Conclusion:
+- This setup involves creating a basic **Java** framework with **Selenium WebDriver** (for web testing) and **Appium** (for mobile testing).
+- Maven is used for **dependency management**.
+- You can create basic test cases using **TestNG** or **JUnit** to manage test execution.
+- For **mobile testing**, you need to install **Appium**, start the server, and set up **Android Studio** or **Xcode**.
+
+This gives you a solid foundation for **Java Selenium & Appium** testing locally. You can build on this by adding more advanced features like **Page Object Model**, **Data-Driven Testing**, and more.
+
+Let me know if you need further details!
