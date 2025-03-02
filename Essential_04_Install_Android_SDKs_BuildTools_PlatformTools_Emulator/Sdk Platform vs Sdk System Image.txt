@@ -1,0 +1,21 @@
+✅ **Difference Between `platforms/` (Android OS Versions) and System Images**  
+
+| Component          | **Platforms (`platforms/` folder)**                                    | **System Images (`system-images/` folder)**                          |
+|-------------------|------------------------------------------------------------------------|---------------------------------------------------------------------|
+| **What it contains?** | Android API frameworks & libraries for development and automation. | A complete Android OS image (kernel, system, vendor, boot, etc.). |
+| **Why is it required?** | Needed to compile and build apps targeting specific Android versions. | Needed to run apps on an Emulator (virtual Android device). |
+| **How does it work?** | Provides the necessary Java APIs for Android development. | Boots up a full Android OS inside an Emulator. |
+| **Where is it used?** | Required for writing & running test scripts. | Required for launching an Emulator. |
+| **Example** | `platforms/android-35/` → Contains API 35 (Android 15). | `system-images/android-35/google_apis/x86_64/` → Android 15 Emulator image. |
+
+---
+
+### 🔹 **Key Takeaways:**  
+✔ **`platforms/` contains the Android OS **APIs** used for development** (frameworks & libraries).  
+✔ **`system-images/` contains the actual Android OS** used in emulators **(like an installed OS on a device).**  
+
+💡 **Think of it like this:**  
+- **Platforms = The software development kit (SDK) for an Android version.**  
+- **System Image = The actual Android OS that runs on an Emulator.**  
+
+Would you like more clarifications? 🚀
