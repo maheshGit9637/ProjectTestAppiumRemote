@@ -1,0 +1,14 @@
+Appium Client Library (Test Scripts)
+  | - - - - > Sends commands
+  |
+Appium Server
+  | - - - - > Forwards to Mobile Driver
+  |
+Mobile Driver (UIAutomator2, Espresso, etc.)
+  | - - - - > Uses Android SDK for communication
+  |
+Android SDK (ADB, Platform Tools, etc.)
+  | - - - - > Sends actions to Device
+  |
+Virtual/Real Android Device
+  | - - - - > Executes actions & sends results back

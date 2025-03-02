@@ -1,0 +1,5 @@
+Essential_02_Install_Appium_Server
+🔹 Why? The Appium server acts as a bridge between automation scripts and the mobile device.
+✅ Appium Server → Core service that translates WebDriver commands into device actions
+✅ Node.js & npm (if installing via npm) → Needed for running Appium
+✅ Appium Desktop (Optional but useful) → GUI tool to inspect elements & run basic tests

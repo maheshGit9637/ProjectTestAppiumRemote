@@ -1,0 +1,6 @@
+Essential_01_Install_Appium_Client_Libraries
+🔹 Why? These libraries allow your test scripts to communicate with Appium.
+✅ Appium Java Client (or Python, JavaScript, etc.) → Required for writing automation scripts in your preferred language
+✅ Selenium/WebDriver Libraries → Enables interaction with web views in hybrid apps
+✅ Test Frameworks (TestNG, JUnit, Mocha, etc.) → Used for structuring and running test cases
+

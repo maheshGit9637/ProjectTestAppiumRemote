@@ -1,0 +1,6 @@
+Essential_03_Install_Appium_Drivers
+🔹 Why? These drivers enable Appium to interact with different mobile platforms.
+✅ UIAutomator2 Driver (For Android) → The most stable driver for Android automation
+✅ Espresso Driver (For Android - Optional) → Used for interacting with native Android apps
+✅ XCUITest Driver (For iOS - Optional) → Required for automating iOS apps
+✅ Other Platform-Specific Drivers → Based on your automation needs (like Windows, Mac, etc.)
