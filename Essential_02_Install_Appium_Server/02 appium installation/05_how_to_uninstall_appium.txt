@@ -1,0 +1,29 @@
+To **uninstall Appium**, follow the steps based on your operating system.
+
+### **1. Uninstall Appium Installed via npm (Node.js)**
+Run the following command in the terminal or command prompt:
+```sh
+npm uninstall -g appium
+```
+This removes Appium globally from your system.
+
+### **2. Verify Uninstallation**
+Check if Appium is still installed by running:
+```sh
+appium --version
+```
+If Appium is uninstalled successfully, this command will show an error like **"command not found"** (macOS/Linux) or **"'appium' is not recognized"** (Windows).
+
+### **3. (Optional) Remove Residual Files**
+- **Windows:**  
+  Delete the Appium folder from:
+  ```
+  C:\Users\YourUsername\AppData\Roaming\npm\node_modules\appium
+  ```
+- **macOS/Linux:**  
+  Remove leftover files using:
+  ```sh
+  rm -rf /usr/local/lib/node_modules/appium
+  ```
+
+Now, Appium is completely removed from your system! 🚀

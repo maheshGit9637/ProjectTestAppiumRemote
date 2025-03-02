@@ -1,0 +1,10 @@
+Programming Language (Java, Python, etc.) → Appium Client → Appium Server → Mobile Driver (e.g., UiAutomator2) → Actual/Emulator Device.
+
+The mobile driver (UiAutomator2) acts as a bridge between the Appium server and the Android device, translating automation commands into actions like clicking buttons, entering text, or swiping.
+
+
+A mobile driver in Appium is a component that acts as a bridge between the Appium server and the mobile device.
+
+UiAutomator2 is one such driver specifically for Android automation. It uses Google’s UiAutomator framework to interact with Android UI elements, allowing Appium to perform actions like tapping, swiping, and entering text on real or virtual devices.
+
+Think of it as the middleman that translates Appium commands into actions the Android OS understands. 

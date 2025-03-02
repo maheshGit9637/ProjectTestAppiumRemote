@@ -1,0 +1,161 @@
+### **Complete Mobile Automation Setup for Appium**  
+To successfully run mobile automation tests using Appium, you need to set up various dependencies. Here’s a step-by-step guide to ensure everything is installed correctly.
+
+---
+
+## **1️⃣ Install Node.js & npm**  
+Since Appium runs on Node.js, you must install it first.  
+- **Download and install Node.js (LTS recommended)** 👉 [https://nodejs.org/](https://nodejs.org/)  
+- **Verify installation** (after installation, run):  
+  ```bash
+  node -v
+  npm -v
+  ```
+  ✅ If both return version numbers, Node.js & npm are installed.
+
+---
+
+## **2️⃣ Install Appium**  
+- Install Appium globally using npm:  
+  ```bash
+  npm install -g appium
+  ```
+- **Verify Appium installation**  
+  ```bash
+  appium -v
+  ```
+  ✅ If it returns a version, Appium is installed.
+
+---
+
+## **3️⃣ Install Appium Doctor**  
+Appium Doctor helps verify that your environment is correctly set up.  
+- Install it using npm:  
+  ```bash
+  npm install -g appium-doctor
+  ```
+- **Verify installation**:  
+  ```bash
+  appium-doctor -v
+  ```
+- **Run Appium Doctor to check system dependencies**:  
+  ```bash
+  appium-doctor
+  ```
+  ✅ It will show missing dependencies if any.
+
+---
+
+## **4️⃣ Install Java & Set Environment Variables**  
+Appium requires Java (JDK) to work with Android automation.  
+- Download **JDK (Java 11 or later recommended)** from:  
+  👉 [https://www.oracle.com/java/technologies/javase-jdk11-downloads.html](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)  
+- **Set Environment Variables:**  
+  - `JAVA_HOME` → Path to JDK installation (e.g., `C:\Program Files\Java\jdk-XX`)  
+  - Add `JAVA_HOME\bin` to `PATH`
+
+- **Verify Java installation**:  
+  ```bash
+  java -version
+  echo %JAVA_HOME%  (Windows)
+  echo $JAVA_HOME  (Mac/Linux)
+  ```
+
+---
+
+## **5️⃣ Install Android SDK & Set Up ADB**  
+Appium requires **Android SDK** for Android automation.  
+- Install **Android Studio** 👉 [https://developer.android.com/studio](https://developer.android.com/studio)  
+- **Ensure Android SDK is installed** (via SDK Manager in Android Studio)  
+- **Set Environment Variables:**  
+  - `ANDROID_HOME` → Path to SDK installation (e.g., `C:\Users\YourUser\AppData\Local\Android\Sdk`)  
+  - Add these to `PATH`:  
+    - `%ANDROID_HOME%\platform-tools`  
+    - `%ANDROID_HOME%\tools`  
+    - `%ANDROID_HOME%\tools\bin`  
+
+- **Verify ADB (Android Debug Bridge) installation**:  
+  ```bash
+  adb version
+  ```
+  ✅ If ADB is installed correctly, it will return a version.
+
+---
+
+## **6️⃣ Install Appium Clients (Java Client for Java Automation)**  
+- If using **Java**, install Appium Java Client in your Maven project (`pom.xml`):  
+  ```xml
+  <dependency>
+      <groupId>io.appium</groupId>
+      <artifactId>java-client</artifactId>
+      <version>9.0.0</version>
+  </dependency>
+  ```
+- If using **Python**, install Appium Python Client:  
+  ```bash
+  pip install Appium-Python-Client
+  ```
+
+---
+
+## **7️⃣ Start Appium Server**  
+Run the Appium server before executing tests.  
+- Start Appium from the command line:  
+  ```bash
+  appium
+  ```
+- If you prefer GUI, install **Appium Desktop** 👉 [https://github.com/appium/appium-desktop/releases](https://github.com/appium/appium-desktop/releases)  
+
+---
+
+## **8️⃣ Set Up Emulator or Real Device**  
+### **For Emulators (Android Studio AVD)**
+- Open **Android Studio → AVD Manager**  
+- Create & start an Android Virtual Device (AVD)  
+
+### **For Real Android Devices**
+- Enable **USB Debugging** on the phone (`Settings → Developer Options`)  
+- Connect the phone to your PC via USB  
+- Verify if the device is detected:  
+  ```bash
+  adb devices
+  ```
+  ✅ It should list your connected device.
+
+---
+
+## **9️⃣ (Optional) Install WebDriver Agent for iOS (Mac Users)**  
+If testing on iOS, install **Xcode** & **WebDriverAgent**:  
+```bash
+brew install carthage
+```
+- Configure **Xcode** with the correct developer profile.  
+- Install **iOS WebDriver Agent** (via WebDriverAgent project from Appium).  
+
+---
+
+## **🔟 Verify Everything with Appium Doctor**  
+Finally, check if all dependencies are correctly installed:  
+```bash
+appium-doctor
+```
+✅ If everything is properly set up, you can start writing test scripts!
+
+---
+
+## **✔ Summary of Required Installations**
+| **Component**         | **Required for**          | **Installation Command / Link** |
+|-----------------------|-------------------------|--------------------------------|
+| Node.js & npm        | Running Appium Server   | `npm install -g appium`       |
+| Appium               | Mobile Automation       | `npm install -g appium`       |
+| Appium Doctor        | Setup Verification      | `npm install -g appium-doctor` |
+| Java JDK            | Android Testing         | Install from Oracle/OpenJDK   |
+| Android SDK         | Android Testing         | Install via Android Studio   |
+| ADB (Android Debug Bridge) | Device Communication | Included in Android SDK       |
+| Appium Java Client  | Writing Test Scripts    | Add in `pom.xml` (Maven)      |
+| Emulator/Real Device | Running Tests          | Android Studio AVD / USB Debugging |
+
+---
+
+### **🚀 Now You Are Ready for Appium Mobile Automation!**  
+Let me know if you face any issues in setup! 🔥

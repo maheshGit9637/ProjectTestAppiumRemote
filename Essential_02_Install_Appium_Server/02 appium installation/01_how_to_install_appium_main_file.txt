@@ -1,0 +1,59 @@
+Here’s a concise document focusing only on the **CLI-based Appium installation** for both **Windows and macOS**.  
+
+---
+
+# **Installing Appium via Node.js (CLI Approach)**  
+
+## **Step 1: Check if Node.js is Installed**  
+Run the following command to check if Node.js is installed:  
+```sh
+node -v
+```
+If not installed, download and install it from [Node.js official website](https://nodejs.org/).  
+
+## **Step 2: Install Appium Globally**  
+### **For Windows & macOS**  
+Run the following command:  
+```sh
+npm install -g appium
+```
+This installs Appium globally, making it accessible from any directory.  
+
+## **Step 3: Verify Installation**  
+Check if Appium is installed successfully:  
+```sh
+appium --version
+
+C:\Users\user01\Desktop\ProjectTestAppium>appium -v
+2.16.2
+
+C:\Users\user01\Desktop\ProjectTestAppium>appium --version
+2.16.2
+```
+
+## **Step 4: Start the Appium Server**  
+To start the Appium server, run:  
+```sh
+appium
+```
+
+## **Step 5: Locate the Installed Appium Package**  
+To find where Appium is installed, use:  
+```sh
+npm root -g
+```
+- **Windows Default Path:**  
+  ```
+  C:\Users\YourUsername\AppData\Roaming\npm\node_modules\appium
+  ```
+- **macOS Default Path:**  
+  ```
+  /usr/local/lib/node_modules/appium
+  ```
+
+---
+
+## **Conclusion**  
+Installing Appium via Node.js is a straightforward process. Follow these steps to set up Appium on **Windows or macOS** and start automating your mobile applications.  
+
+Let me know if you need further refinements! 🚀

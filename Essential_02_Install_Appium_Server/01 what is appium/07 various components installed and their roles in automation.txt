@@ -1,0 +1,15 @@
+### **Roles of Each Component in Android Automation**  
+
+| **Component**         | **Role in Android Automation** |
+|-----------------------|--------------------------------|
+| **Node.js & npm**     | Required to install and run Appium, which is built on Node.js. |
+| **Appium**            | Acts as the automation server to send commands to Android devices or emulators. |
+| **Appium Doctor**     | Helps verify if all required dependencies for Appium are correctly installed. |
+| **Java JDK**          | Provides the Java runtime and compiler, essential for running Appium test scripts in Java. |
+| **Android SDK**       | Provides tools, platform libraries, and APIs required for interacting with Android devices. |
+| **ADB (Android Debug Bridge)** | Enables communication between the computer and Android device for testing and debugging. |
+| **Appium Java Client** | A Java library that allows writing test scripts to interact with Appium. |
+| **Emulator/Real Device** | Serves as the test environment where automation scripts run. |
+| **WebDriverAgent (iOS only)** | Required for running tests on iOS devices, not needed for Android. |
+
+This setup ensures that your Android automation framework runs smoothly using Appium. 🚀

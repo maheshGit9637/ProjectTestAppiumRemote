@@ -1,0 +1,115 @@
+### **✅ Steps to Set Up Android Automation via Android Studio**
+If you're using **Android Studio**, the setup becomes easier because it provides a GUI for managing SDKs, AVDs (emulators), and other dependencies. Here’s a step-by-step guide:
+
+---
+
+## **🔹 1️⃣ Install & Set Up Android Studio**
+📌 **Download & Install:**  
+- Download **Android Studio** from [here](https://developer.android.com/studio).  
+- Follow the installation process.
+
+📌 **Ensure the required SDKs are installed:**  
+- Open **Android Studio** → **SDK Manager**  
+  - Install **Android SDK** (Platform, Build-Tools, Platform-Tools)
+  - Install **System Image** (e.g., `Google APIs | Android 34 | x86_64`)
+  - Install **Emulator** tools  
+
+👉 **Confirm SDK Location:**  
+Go to **Android Studio** → **SDK Manager** → Note the **Android SDK Location** (e.g., `C:\Users\YourName\AppData\Local\Android\Sdk`).
+
+---
+
+## **🔹 2️⃣ Set Up & Run Emulator**
+📌 **Create an Emulator (AVD):**  
+- Open **Android Studio** → **AVD Manager**  
+- Click **"Create Virtual Device"**  
+- Choose a device (e.g., Pixel 6)  
+- Select a **System Image** (e.g., `Android 34 | x86_64`)  
+- Finish setup and **Start the Emulator**
+
+👉 **Verify Emulator is Running:**  
+Run the command:
+```sh
+adb devices
+```
+Expected output:
+```
+List of devices attached
+emulator-5554   device
+```
+
+---
+
+## **🔹 3️⃣ Install & Start Appium Server**
+📌 **Install Appium:**  
+- Install Node.js (required for Appium) → [Download Here](https://nodejs.org/en/download)  
+- Install Appium globally:  
+  ```sh
+  npm install -g appium
+  ```
+
+📌 **Start Appium Server:**  
+```sh
+appium
+```
+It should output something like:
+```
+[Appium] Welcome to Appium v2.0.0
+[Appium] Appium REST HTTP interface listener started on 0.0.0.0:4723
+```
+
+---
+
+## **🔹 4️⃣ Install & Configure Appium Mobile Driver**
+📌 **Install UIAutomator2 (for Android automation)**  
+```sh
+appium driver install uiautomator2
+```
+
+📌 **Verify Drivers Installed:**  
+```sh
+appium driver list
+```
+
+---
+
+## **🔹 5️⃣ Run Your First Automation Script**
+📌 **Write a Simple Appium Test in Java**
+```java
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class AndroidTest {
+    public static void main(String[] args) throws MalformedURLException {
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+        caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+        caps.setCapability(MobileCapabilityType.APP, "path/to/your/app.apk");
+
+        AndroidDriver driver = new AndroidDriver(new URL("http://localhost:4723"), caps);
+        System.out.println("App Launched Successfully!");
+
+        // Add your automation steps here
+        driver.quit();
+    }
+}
+```
+📌 **Run the script:**  
+- Start the emulator (if not running).
+- Ensure Appium is running.
+- Run the test script in Eclipse or IntelliJ.
+
+---
+
+## **🎯 Summary of Steps**
+1️⃣ Install **Android Studio** & Required SDKs  
+2️⃣ Create & Launch an Emulator from **AVD Manager**  
+3️⃣ Install & Start **Appium Server** (`appium`)  
+4️⃣ Install **UIAutomator2 Driver** (`appium driver install uiautomator2`)  
+5️⃣ Write & Run **Appium Automation Script**  
+
+🔹 **This method is GUI-based and easier** compared to manually setting up SDKs! 🚀 Let me know if you need further clarification. 😊

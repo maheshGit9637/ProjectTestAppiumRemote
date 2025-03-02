@@ -1,0 +1,26 @@
+Got it! Here’s what you need:  
+
+### **Install UiAutomator2 Driver**  
+```sh
+appium driver install uiautomator2
+
+C:\Users\<user01>\Desktop\ProjectTestAppium>appium driver install uiautomator2
+√ Checking if 'appium-uiautomator2-driver' is compatible
+√ Installing 'uiautomator2'
+i Driver uiautomator2@4.1.0 successfully installed
+- automationName: UiAutomator2
+- platformNames: ["Android"]
+
+```
+
+### **List Installed Drivers**  
+```sh
+appium driver list
+```
+
+### **Uninstall UiAutomator2 Driver**  
+```sh
+appium driver uninstall uiautomator2
+```
+
+That’s it! Let me know if you need anything else. 🚀

@@ -1,0 +1,44 @@
+When you execute:  
+```sh
+sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0" "emulator"
+```
+it installs the SDK components inside your **Android SDK directory**, which is set by the `ANDROID_HOME` or `ANDROID_SDK_ROOT` environment variable.
+
+---
+
+### **📌 Default Installation Location**
+By default, the SDK components are installed in:
+- **Windows:** `C:\Android\Sdk\`
+- **Linux/macOS:** `~/Android/Sdk/`
+
+If you've set `ANDROID_HOME` or `ANDROID_SDK_ROOT` to a different directory, they will be installed there.
+
+---
+
+### **📂 Where Each Component is Installed?**
+| Component | Installed Location |
+|-----------|-------------------|
+| **platform-tools** (contains `adb`, `fastboot`, etc.) | `C:\Android\Sdk\platform-tools\` |
+| **platforms;android-34** (Android 14 SDK) | `C:\Android\Sdk\platforms\android-34\` |
+| **build-tools;34.0.0** (needed to compile APKs) | `C:\Android\Sdk\build-tools\34.0.0\` |
+| **emulator** (Android Emulator files) | `C:\Android\Sdk\emulator\` |
+
+---
+
+### **📌 Verify Installation**
+You can manually check the installed components:
+1. Open **File Explorer** and navigate to:
+   ```
+   C:\Android\Sdk\
+   ```
+2. Inside, you should see the **platform-tools, platforms, build-tools, and emulator** folders.
+
+Alternatively, run:
+```sh
+sdkmanager --list_installed
+```
+This will list all installed SDK components.
+
+---
+
+Let me know if you need further help! 🚀

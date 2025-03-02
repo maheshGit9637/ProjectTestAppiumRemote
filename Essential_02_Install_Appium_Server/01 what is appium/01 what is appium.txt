@@ -1,0 +1,22 @@
+What is Appium?
+Appium is an open-source mobile automation framework used for testing native, hybrid, and web applications on Android and iOS devices. It allows you to write tests using the WebDriver protocol (similar to Selenium) and execute them on real devices, emulators, or simulators.
+
+Key Features of Appium
+✅ Cross-platform Testing – Automate tests for Android & iOS using the same test scripts.
+✅ Multi-language Support – Works with Java, Python, JavaScript, C#, Ruby, etc.
+✅ No App Modification Required – No need to add extra SDKs or recompile the app.
+✅ Supports Real & Virtual Devices – Run tests on real devices, emulators, and cloud platforms (like BrowserStack, Sauce Labs).
+✅ Uses Standard WebDriver Protocol – Works similarly to Selenium for web automation.
+
+How Appium Works?
+1️⃣ Appium Client (Test Script) – Sends automation commands written in Selenium/Appium WebDriver format.
+2️⃣ Appium Server – A Node.js-based server that receives and processes the commands.
+3️⃣ Mobile Drivers (UiAutomator2, XCUITest, etc.) – Translates commands into actions that interact with the mobile device or app.
+4️⃣ Device/App Execution – The mobile app executes the command, and results are sent back to the client.
+
+What is mean by native android apps
+apps that are developed separately for android and ios
+for android they use java, kotlin
+
+what is hybrid apps
+apps those run on both android and ios

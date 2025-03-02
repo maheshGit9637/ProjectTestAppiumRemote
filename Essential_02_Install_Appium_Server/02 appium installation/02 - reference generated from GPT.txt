@@ -1,0 +1,135 @@
+Here’s a well-structured document based on your provided content:
+
+---
+
+# **Appium 2.0 Setup Guide**
+
+## **Introduction**
+This guide provides a step-by-step process to set up Appium 2.0 on Windows and Mac OS, including installation, configuration, and verification of dependencies.
+
+## **Topics**
+- Introduction to Appium 2.0
+- Installation and setup on Windows & Mac OS
+- Appium server and driver installation
+- Running and verifying the Appium server
+
+---
+
+## **Appium 2.0 Changes** *(03:39)*
+- Appium 2.0 introduces modularity by separating drivers from the core server.
+- Users must manually install specific drivers for Android (`UiAutomator2`) and iOS (`XCUITest`).
+
+---
+
+## **Appium Basic Setup on Windows and Mac OS** *(06:15)*
+
+### **Step 1 - Check if Node.js is installed** *(07:32)*
+Run the following commands:
+```sh
+node -v
+npm -v
+```
+If Node.js is installed, it will return the version numbers.
+
+### **Step 2 - Install Node.js (If Not Installed)** *(08:43)*
+Download and install Node.js from:  
+[https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+
+---
+
+### **Step 3 - Check if Appium is Installed** *(14:05)*
+Run:
+```sh
+appium --version
+```
+or
+```sh
+appium -v
+```
+If Appium is not installed, proceed to Step 4.
+
+### **Step 4 - Install Appium via NPM** *(15:18)*
+```sh
+npm install -g appium@latest
+```
+⚠️ **Note:** Installing Appium 2.0 only installs the core server. Drivers must be installed separately.
+
+---
+
+### **Step 5 - Verify Appium Installation** *(22:43)*
+Check if Appium is available:
+```sh
+appium -v
+which appium  # Linux/macOS
+where appium  # Windows
+```
+
+### **Step 6 - Run Appium to Check Installed Version** *(23:56)*
+```sh
+appium
+```
+(Press `CTRL + C` to quit)
+
+---
+
+### **Step 7 - Install Appium Doctor (Optional)** *(26:12)*
+```sh
+npm install -g appium-doctor
+```
+Appium Doctor helps diagnose Node, iOS, and Android configuration issues:
+```sh
+appium-doctor -h
+```
+
+---
+
+### **Step 8 - Install Required Appium Drivers** *(29:37)*
+To list available drivers:
+```sh
+appium driver list
+appium plugin list
+```
+To install specific drivers:
+```sh
+appium driver install uiautomator2   # Android
+appium driver install xcuitest       # iOS
+```
+To check installed drivers:
+```sh
+appium driver list
+```
+To update drivers:
+```sh
+appium driver list --updates
+```
+
+---
+
+### **Step 9 - Run Appium Server** *(32:02)*
+Start the server:
+```sh
+appium
+```
+or with CORS enabled:
+```sh
+appium --allow-cors
+```
+(Press `CTRL + C` to stop the server.)
+
+**Why use `--allow-cors`?**
+- Enables Cross-Origin Resource Sharing (CORS).
+- Required when using a framework running on a different domain (e.g., Appium Inspector).
+
+---
+
+## **Summary** *(34:46)*
+### **Appium 2.0 Setup Checklist**
+✅ Install **Node.js**  
+✅ Install **Appium Server**  
+✅ Install **Appium Doctor** *(optional)*  
+✅ Check **Appium Drivers** (Android/iOS)  
+✅ Run **Appium Server**  
+
+This completes the setup for Appium 2.0. 🎯
+
+Would you like any modifications or additional details? 🚀

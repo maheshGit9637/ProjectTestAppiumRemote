@@ -1,0 +1,25 @@
+Here's the properly formatted text from the image:
+
+---
+
+# **TOPICS**
+
+- [ ] **APPIUM 2 Changes**  
+- [ ] **Appium Basic Setup on Windows and Mac OS**  
+- [ ] **Setup for Android Mobile Testing**  
+  - [ ] Check missing dependencies on our system  
+  - [ ] Setup Java JDK  
+  - [ ] Install Appium Android drivers  
+  - [ ] Setup Android SDK and SDK Tools  
+    - [ ] **Option 1**: Download and setup only the required tools  
+    - [ ] **Option 2**: Download and install Android Studio  
+  - [ ] Android Real Device Setup for Automation  
+  - [ ] Android Virtual Device Setup for Automation  
+    - [ ] How to create and start AVD (Emulator) with Android Studio  
+    - [ ] How to create and start AVD (Emulator) without Android Studio  
+  - [ ] Get APK file for testing  
+- [ ] **Setup and Start Appium Inspector**  
+- [ ] **Create 1st Recording session with Appium**  
+- [ ] **Common User Questions**  
+
+Let me know if you need any modifications! 😊

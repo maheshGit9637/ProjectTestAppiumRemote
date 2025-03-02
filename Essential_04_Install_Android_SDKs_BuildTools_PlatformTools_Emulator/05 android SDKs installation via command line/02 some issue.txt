@@ -1,0 +1,74 @@
+The error **"'sdkmanager' is not recognized as an internal or external command"** occurs because the system cannot find `sdkmanager`. This usually means that the **Android SDK environment variables** are not correctly set or the `cmdline-tools` folder is missing.  
+
+---
+
+## **Fix the Issue Step by Step**
+### ✅ **Step 1: Verify SDK Installation Path**
+Since you installed the SDK manually, make sure `cmdline-tools` exists in your SDK folder:  
+1. Open **File Explorer** and go to:  
+   ```
+   C:\Android\Sdk\cmdline-tools
+   ```
+2. Inside `cmdline-tools`, check if there is a `latest` folder.  
+   **If missing:**  
+   - **Create a `latest` folder** and move `bin`, `lib`, and `source.properties` into it.
+   - The structure should look like:
+     ```
+     C:\Android\Sdk\cmdline-tools\latest\bin\sdkmanager.bat
+     ```
+
+---
+
+### ✅ **Step 2: Set Environment Variables (Windows)**
+1. **Open Environment Variables:**
+   - Press **Win + R**, type `sysdm.cpl`, and press **Enter**.
+   - Go to **Advanced** → **Environment Variables**.
+
+2. **Add `ANDROID_HOME` & `ANDROID_SDK_ROOT`:**
+   - Click **New** under **System Variables** and add:
+     ```
+     Variable name: ANDROID_HOME
+     Variable value: C:\Android\Sdk
+     ```
+     ```
+     Variable name: ANDROID_SDK_ROOT
+     Variable value: C:\Android\Sdk
+     ```
+
+3. **Update `Path` Variable:**
+   - Select the **Path** variable → Click **Edit** → Click **New**.
+   - Add these paths:
+     ```
+     C:\Android\Sdk\cmdline-tools\latest\bin
+     C:\Android\Sdk\platform-tools
+     C:\Android\Sdk\emulator
+     ```
+
+4. **Click OK** and **Restart your computer**.
+
+---
+
+### ✅ **Step 3: Test SDK Installation**
+After restarting, open **Command Prompt** and check:
+```sh
+sdkmanager --list
+```
+If it lists available packages, the issue is fixed! 🎉
+
+---
+
+## **🔹 If You Still Get the Error**
+Try running `sdkmanager.bat` directly:
+```sh
+cd C:\Android\Sdk\cmdline-tools\latest\bin
+sdkmanager.bat --list
+```
+If this works, then the issue is with your `Path` variable.
+
+---
+
+### **Final Check**
+- Run `adb version` to confirm that **adb** is working.
+- Run `sdkmanager --list` to confirm that **sdkmanager** is working.
+
+Let me know if you still face issues! 🚀

@@ -1,0 +1,121 @@
+### ✅ **Step-by-Step Installation of Required SDK Components via Android Studio**  
+
+Once **Android Studio** is installed, follow these steps to install all necessary SDK components **without using the command line**.  
+
+---
+
+### **📌 Step 1: Open Android Studio & SDK Manager**  
+1️⃣ Launch **Android Studio**  
+2️⃣ Click on **"More Actions"** (on the welcome screen)  
+3️⃣ Select **"SDK Manager"**  
+
+---
+
+### **📌 Step 2: Install Platform Tools (ADB & Fastboot)**  
+1️⃣ In the **SDK Manager**, go to the **"SDK Tools"** tab  
+2️⃣ Check ✅ **Android SDK Platform-Tools**  
+3️⃣ Click **Apply** → **OK** → Wait for installation  
+
+📌 **This installs:** `adb`, `fastboot`  
+📌 **Location:** `C:\Users\YourName\AppData\Local\Android\Sdk\platform-tools\`
+
+---
+
+### **📌 Step 3: Install SDK Platforms (Required for Testing on Different Android Versions)**  
+1️⃣ In the **SDK Manager**, go to the **"SDK Platforms"** tab  
+2️⃣ Check ✅ the latest **Android API version** (e.g., **Android 14, API 34**)  
+3️⃣ Click **Apply** → **OK** → Wait for installation  
+
+📌 **This installs:** `platforms/android-34/` (or your selected version)  
+📌 **Location:** `C:\Users\YourName\AppData\Local\Android\Sdk\platforms\`
+
+---
+
+### **📌 Step 4: Install Build Tools (Required for Signing & Compiling APKs)**  
+1️⃣ In **SDK Manager**, go to the **"SDK Tools"** tab  
+2️⃣ Check ✅ **Android SDK Build-Tools** (Latest version, e.g., **34.0.0**)  
+3️⃣ Click **Apply** → **OK** → Wait for installation  
+
+📌 **This installs:** `aapt`, `zipalign`, `apksigner`  
+📌 **Location:** `C:\Users\YourName\AppData\Local\Android\Sdk\build-tools\34.0.0\`
+
+---
+
+### **📌 Step 5: Install Emulator (For Virtual Devices)**  
+1️⃣ In **SDK Manager**, go to **"SDK Tools"** tab  
+2️⃣ Check ✅ **Android Emulator**  
+3️⃣ Click **Apply** → **OK** → Wait for installation  
+
+📌 **This installs:** `emulator.exe`  
+📌 **Location:** `C:\Users\YourName\AppData\Local\Android\Sdk\emulator\`
+
+---
+
+### **📌 Step 6: Install System Images (For Emulating Android Devices)**  
+1️⃣ In **SDK Manager**, go to **"SDK Platforms"**  
+2️⃣ Click the **"Show Package Details"** checkbox  
+3️⃣ Select **Google APIs System Image** for your desired API version (e.g., API 34)  
+4️⃣ Click **Apply** → **OK** → Wait for installation  
+
+📌 **This installs:** System images required for running emulators  
+📌 **Location:** `C:\Users\YourName\AppData\Local\Android\Sdk\system-images\android-34\`
+
+---
+
+### **📌 Step 7: Install Google Play Services (If Needed for Testing Google Apps)**  
+1️⃣ In **SDK Manager**, go to **"SDK Tools"**  
+2️⃣ Check ✅ **Google Play services & Google Play Store** (if required)  
+3️⃣ Click **Apply** → **OK** → Wait for installation  
+
+📌 **Location:** `C:\Users\YourName\AppData\Local\Android\Sdk\extras\google\`
+
+---
+
+### **📌 Step 8: Verify SDK Installations**
+📌 Open **Terminal (CMD/PowerShell) and Run:**  
+```sh
+adb --version
+emulator -list-avds
+sdkmanager --list
+```
+✅ If the commands work, the installation is successful.
+
+---
+
+### **📌 Step 9: Set Up Environment Variables (Only If Needed)**
+⚡ **If Android Studio is correctly installed, environment variables should be set automatically.**  
+⚡ But if `adb` or `emulator` commands do not work, manually set:  
+
+1️⃣ Open **Environment Variables** (`System Properties → Advanced → Environment Variables`)  
+2️⃣ Under **System Variables**, click **New**  
+   - **Variable Name:** `ANDROID_HOME`  
+   - **Variable Value:** `C:\Users\YourName\AppData\Local\Android\Sdk`  
+3️⃣ Under **System Variables**, edit **Path**, and add:  
+   ```sh
+   C:\Users\YourName\AppData\Local\Android\Sdk\platform-tools
+   C:\Users\YourName\AppData\Local\Android\Sdk\emulator
+   ```
+4️⃣ Click **OK** → **Restart PC**  
+
+📌 **Test with CMD:**  
+```sh
+adb devices
+emulator -list-avds
+```
+✅ If no errors, setup is complete! 🚀  
+
+---
+
+### **🎯 Final Summary**
+| 📌 **Component**        | 🔍 **How to Install in Android Studio** |
+|----------------------|--------------------------------|
+| **SDK Platform Tools (ADB)** | SDK Manager → SDK Tools → ✅ Android SDK Platform-Tools |
+| **SDK Platforms (API 34, etc.)** | SDK Manager → SDK Platforms → ✅ Select API version |
+| **Build Tools** | SDK Manager → SDK Tools → ✅ Android SDK Build-Tools |
+| **Emulator** | SDK Manager → SDK Tools → ✅ Android Emulator |
+| **System Images** | SDK Manager → SDK Platforms → ✅ Select "Google APIs System Image" |
+| **Google Play Services** | SDK Manager → SDK Tools → ✅ Google Play Services |
+
+---
+
+Now your system is **fully set up** for Android automation using Android Studio! 🚀😊 Let me know if you need any modifications.
